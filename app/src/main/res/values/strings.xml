@@ -13,11 +13,11 @@
     <!-- Nav Drawer List Item Icons -->
     <!-- Keep them in order as the titles are in -->
     <array name="nav_drawer_icons">
+        <item>@drawable/monday</item>
+        <item>@drawable/tuesday</item>
         <item>@drawable/ic_drawer</item>
-        <item>@drawable/ic_drawer</item>
-        <item>@drawable/ic_drawer</item>
-        <item>@drawable/ic_drawer</item>
-        <item>@drawable/ic_drawer</item>
-        <item>@drawable/ic_drawer</item>
+        <item>@drawable/thursday</item>
+        <item>@drawable/friday</item>
+        <item>@drawable/saturday</item>
     </array>
 </resources>
