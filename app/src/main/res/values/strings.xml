@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Timetable</string>
     <string name="action_settings">Settings</string>
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Monday</item>
+        <item >Tuesday</item>
+        <item >Wensday</item>
+        <item >Thursday</item>
+        <item >Friday</item>
+        <item >Satuday</item>
+    </string-array>
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_drawer</item>
+        <item>@drawable/ic_drawer</item>
+        <item>@drawable/ic_drawer</item>
+        <item>@drawable/ic_drawer</item>
+        <item>@drawable/ic_drawer</item>
+        <item>@drawable/ic_drawer</item>
+    </array>
 </resources>
