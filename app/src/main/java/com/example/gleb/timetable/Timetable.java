@@ -1,5 +1,6 @@
 package com.example.gleb.timetable;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +11,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Timetable extends AppCompatActivity {
     public static final String TAG = "Tag";
@@ -37,6 +41,8 @@ public class Timetable extends AppCompatActivity {
     // used to store app title
     private CharSequence mTitle;
     private ImageView imageView;
+    private List<Lesson> lessons;
+    private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +114,23 @@ public class Timetable extends AppCompatActivity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+        rv=(RecyclerView)findViewById(R.id.rv);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);
+        rv.setHasFixedSize(true);
+
+        initializeData();
+        RVAdapter adapter = new RVAdapter(lessons);
+        rv.setAdapter(adapter);
+    }
+
+    private void initializeData() {
+        lessons = new ArrayList<>();
+        lessons.add(new Lesson(1, "System programming", "8.705", "Kolomoitseva I.A.", R.drawable.faculty));
+        lessons.add(new Lesson(2, "Security programm and data", "8.705", "Chernyshova A.V.", R.drawable.faculty));
+        lessons.add(new Lesson(3, "Quality and testing software", "8.705", "Fediaev O.I..", R.drawable.faculty));
     }
 
     @Override
@@ -126,6 +149,8 @@ public class Timetable extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(Timetable.this, References.class);
+            startActivity(intent);
             return true;
         }
 
